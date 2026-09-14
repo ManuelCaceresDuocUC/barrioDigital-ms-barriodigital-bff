@@ -1,0 +1,15 @@
+
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://sts.windows.net/ffcb40ec-aa43-4c4e-acd8-4d27467872c5/
+
+services:
+  catalog:
+    url: http://localhost:8081
+
+server:
+  port: 8080
