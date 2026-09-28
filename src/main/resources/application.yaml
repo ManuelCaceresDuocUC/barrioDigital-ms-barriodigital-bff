@@ -1,15 +1,19 @@
+server:
+  port: 8080
 
+services:
+  requests:
+    url: http://host.docker.internal:8081
+  catalog:
+    url: http://host.docker.internal:8082
+  report:
+    url: http://host.docker.internal:8083
+  audit:
+    url: http://host.docker.internal:8084
 
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://sts.windows.net/ffcb40ec-aa43-4c4e-acd8-4d27467872c5/
-
-services:
-  catalog:
-    url: http://localhost:8081
-
-server:
-  port: 8080
+          issuer-uri: https://login.microsoftonline.com/ffcb40ec-aa43-4c4e-acd8-4d27467872c5/v2.0
