@@ -26,9 +26,22 @@ public class RequestsProxyController {
     public ResponseEntity<String> proxyRequestsRequest(@RequestBody(required = false) String body,
                                                        HttpMethod method,
                                                        HttpServletRequest request) {
-        String path = request.getRequestURI();
+        String path = request.getRequestURI(); // Ej: "/api/requests/41/status"
         String query = request.getQueryString();
-        String targetUrl = requestsServiceUrl + path + (query != null ? "?" + query : "");
+
+        // 1. Limpiar barras diagonales al final de la URL base
+        String baseUrl = requestsServiceUrl.trim();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        // 2. Prevenir la duplicación de "/api/requests" si la propiedad ya la incluye
+        if (baseUrl.endsWith("/api/requests") && path.startsWith("/api/requests")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - "/api/requests".length());
+        }
+
+        // 3. Construir la URL limpia hacia el microservicio
+        String targetUrl = baseUrl + path + (query != null ? "?" + query : "");
 
         HttpHeaders headers = new HttpHeaders();
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
