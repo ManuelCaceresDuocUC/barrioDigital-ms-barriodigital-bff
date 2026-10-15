@@ -2,14 +2,14 @@ server:
   port: 8080
 
 services:
-  requests:
-    url: http://host.docker.internal:8081
   catalog:
-    url: http://host.docker.internal:8082
+    url: ${CATALOG_SERVICE_URL:http://ms-barriodigital-catalog:8082}
+  requests:
+    url: ${REQUESTS_SERVICE_URL:http://ms-barriodigital-requests:8081}
   report:
-    url: http://host.docker.internal:8083
+    url: ${REPORT_SERVICE_URL:http://ms-barriodigital-report:8084}
   audit:
-    url: http://host.docker.internal:8084
+    url: ${AUDIT_SERVICE_URL:http://ms-barriodigital-audit:8085}
 
 spring:
   security:
