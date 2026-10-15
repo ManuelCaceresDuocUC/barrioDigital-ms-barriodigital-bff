@@ -1,19 +1,19 @@
+server:
+  port: 8080
+
+services:
+  catalog:
+    url: ${CATALOG_SERVICE_URL:http://ms-barriodigital-catalog:8082}
+  requests:
+    url: ${REQUESTS_SERVICE_URL:http://ms-barriodigital-requests:8081}
+  report:
+    url: ${REPORT_SERVICE_URL:http://ms-barriodigital-report:8084}
+  audit:
+    url: ${AUDIT_SERVICE_URL:http://ms-barriodigital-audit:8085}
+
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: https://login.microsoftonline.com/ffcb40ec-aa43-4c4e-acd8-4d27467872c5/v2.0
-
-services:
-  catalog:
-    url: http://ms-barriodigital-catalog:8082
-  requests:
-    url: http://ms-barriodigital-requests:8081
-  report:
-    url: http://ms-barriodigital-report:8084
-  audit:
-    url: http://ms-barriodigital-audit:8085
-
-server:
-  port: 8080
