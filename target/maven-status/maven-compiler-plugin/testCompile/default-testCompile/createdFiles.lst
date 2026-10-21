@@ -1,1 +1,4 @@
+cl\barriodigital\bff\config\ServicesPropertiesTest.class
 cl\barriodigital\bff\MsBarriodigitalBffApplicationTests.class
+cl\barriodigital\bff\controller\RabbitProxyRoutingTest.class
+cl\barriodigital\bff\controller\RabbitProxyRoutingTest$TestConfig.class
