@@ -4,4 +4,3 @@ cl\barriodigital\bff\MsBarriodigitalBffApplication.class
 cl\barriodigital\bff\config\SecurityConfig.class
 cl\barriodigital\bff\config\ServicesProperties$Service.class
 cl\barriodigital\bff\config\ServicesProperties.class
-cl\barriodigital\bff\controller\RequestsProxyController.class

@@ -10,6 +10,8 @@ services:
     url: ${REPORT_SERVICE_URL:http://ms-barriodigital-report:8084}
   audit:
     url: ${AUDIT_SERVICE_URL:http://ms-barriodigital-audit:8085}
+  rabbit:
+    url: ${RABBITADMIN_SERVICE_URL:http://ms-barriodigital-rabbitadmin:8086}
 
 spring:
   security:
