@@ -33,7 +33,8 @@ public class ApiProxyController {
     }
 
     @RequestMapping(
-            value = {"/api/catalog/**", "/api/requests/**", "/api/report/**", "/api/audit/**", "/api/rabbit/**"},
+            value = {"/api/catalog/**", "/api/requests/**", "/api/report/**", "/api/audit/**", "/api/rabbit/**",
+                      "/api/kafka/**"},
             method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
                       RequestMethod.PATCH, RequestMethod.DELETE})
     public ResponseEntity<byte[]> proxy(@RequestBody(required = false) byte[] body,

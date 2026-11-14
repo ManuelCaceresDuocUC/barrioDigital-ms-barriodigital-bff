@@ -107,7 +107,7 @@ class RabbitProxyRoutingTest {
         @Bean
         ServicesProperties servicesProperties() {
             String url = "http://127.0.0.1:" + downstream.getAddress().getPort();
-            return new ServicesProperties(null, null, null, null, new Service(url));
+            return new ServicesProperties(null, null, null, null, new Service(url), null);
         }
     }
 

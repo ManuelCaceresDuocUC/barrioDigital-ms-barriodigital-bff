@@ -13,7 +13,8 @@ class ServicesPropertiesTest {
             new Service("http://requests:8081"),
             new Service("http://report:8084"),
             new Service("http://audit:8085"),
-            new Service("http://rabbitadmin:8086"));
+            new Service("http://rabbitadmin:8086"),
+            new Service("http://kafkaadmin:8087"));
 
     @Test
     void resuelveLaUrlDeCadaServicio() {
@@ -29,15 +30,21 @@ class ServicesPropertiesTest {
     }
 
     @Test
+    void resuelveElAdministradorDeKafka() {
+        assertThat(services.baseUrlFor("kafka")).isEqualTo("http://kafkaadmin:8087");
+    }
+
+    @Test
     void unNombreDesconocidoNoTieneUrl() {
         assertThat(services.baseUrlFor("otro")).isNull();
     }
 
     @Test
     void unServicioSinConfigurarNoTieneUrlNiLanzaExcepcion() {
-        ServicesProperties sinRabbit = new ServicesProperties(null, null, null, null, null);
+        ServicesProperties sinRabbit = new ServicesProperties(null, null, null, null, null, null);
 
         assertThat(sinRabbit.baseUrlFor("rabbit")).isNull();
+        assertThat(sinRabbit.baseUrlFor("kafka")).isNull();
         assertThat(sinRabbit.baseUrlFor("catalog")).isNull();
     }
 }

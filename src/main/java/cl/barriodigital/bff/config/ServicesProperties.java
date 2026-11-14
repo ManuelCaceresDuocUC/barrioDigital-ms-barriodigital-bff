@@ -3,7 +3,8 @@ package cl.barriodigital.bff.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "services")
-public record ServicesProperties(Service catalog, Service requests, Service report, Service audit, Service rabbit) {
+public record ServicesProperties(Service catalog, Service requests, Service report, Service audit, Service rabbit,
+                                 Service kafka) {
 
     public record Service(String url) { }
 
@@ -15,6 +16,7 @@ public record ServicesProperties(Service catalog, Service requests, Service repo
             case "report" -> urlOf(report);
             case "audit" -> urlOf(audit);
             case "rabbit" -> urlOf(rabbit);
+            case "kafka" -> urlOf(kafka);
             default -> null;
         };
     }

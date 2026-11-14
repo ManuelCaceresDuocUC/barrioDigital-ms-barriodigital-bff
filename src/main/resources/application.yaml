@@ -12,6 +12,8 @@ services:
     url: ${AUDIT_SERVICE_URL:http://ms-barriodigital-audit:8085}
   rabbit:
     url: ${RABBITADMIN_SERVICE_URL:http://ms-barriodigital-rabbitadmin:8086}
+  kafka:
+    url: ${KAFKAADMIN_SERVICE_URL:http://ms-barriodigital-kafkaadmin:8087}
 
 spring:
   security:
