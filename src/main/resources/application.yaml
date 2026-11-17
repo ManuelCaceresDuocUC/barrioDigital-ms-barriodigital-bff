@@ -1,6 +1,9 @@
+# Configuración del BFF (puerta única hacia los microservicios).
 server:
   port: 8080
 
+# URL base de cada microservicio. Dentro de Docker se resuelven por el nombre del contenedor;
+# la variable de entorno tiene prioridad (valor tras los dos puntos = por defecto).
 services:
   catalog:
     url: ${CATALOG_SERVICE_URL:http://ms-barriodigital-catalog:8082}
@@ -20,4 +23,6 @@ spring:
     oauth2:
       resourceserver:
         jwt:
+          # Emisor de los tokens: el tenant de Microsoft Entra ID. Spring descubre de aquí las claves
+          # públicas con las que verifica la firma de cada JWT.
           issuer-uri: https://login.microsoftonline.com/ffcb40ec-aa43-4c4e-acd8-4d27467872c5/v2.0
